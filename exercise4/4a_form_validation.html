@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Traveler's Portal Registration</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1995AD, #A1D6E2);
+      color: #F1F1F2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #A1D6E2;
+    }
+    form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label, input, select, textarea, button {
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #1995AD;
+      color: #F1F1F2;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Time Traveler's Portal Registration</h1>
+  
+  <form id="timeTravelForm" action="#" method="POST">
+    <label for="name">Your Full Name (Present, Past, or Future):</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name here">
+    <span id="nameError" class="error"></span>
+
+    <label for="timePeriod">Preferred Time Period (Year/Decade/Century):</label>
+    <input type="text" id="timePeriod" name="timePeriod" placeholder="e.g., 1800s, 3000AD">
+    <span id="timePeriodError" class="error"></span>
+
+    <label for="destination">Desired Destination (City/Place/Year):</label>
+    <input type="text" id="destination" name="destination" placeholder="Where do you want to go?">
+    <span id="destinationError" class="error"></span>
+
+    <label for="reason">Reason for Time Travel:</label>
+    <textarea id="reason" name="reason" rows="4" placeholder="Why are you traveling through time?"></textarea>
+    <span id="reasonError" class="error"></span>
+
+    <label for="timeMachine">Time Machine Model:</label>
+    <input type="text" id="timeMachine" name="timeMachine" placeholder="Which time machine will you use? (e.g., TARDIS, DeLorean)">
+    <span id="timeMachineError" class="error"></span>
+
+    <label for="duration">Duration of Your Journey:</label>
+    <input type="number" id="duration" name="duration" placeholder="How long will you be traveling (in days)?">
+    <span id="durationError" class="error"></span>
+
+    <label for="companions">Number of Companions (if any):</label>
+    <input type="number" id="companions" name="companions" min="0" placeholder="How many companions will join you?">
+    <span id="companionsError" class="error"></span>
+
+    <label for="risks">Potential Risks/Consequences:</label>
+    <textarea id="risks" name="risks" rows="4" placeholder="Any potential risks or consequences of your time travel?"></textarea>
+    <span id="risksError" class="error"></span>
+
+    <label for="message">Additional Message for the Time Travel Agency:</label>
+    <textarea id="message" name="message" rows="4" placeholder="Any additional requests or notes for the agency?"></textarea>
+    <span id="messageError" class="error"></span>
+
+    <button type="submit">Register for Time Travel</button>
+  </form>
+
+  <script>
+    document.getElementById("timeTravelForm").addEventListener("submit", function(event) {
+      let isValid = true;
+      
+      // Clear previous error messages
+      document.querySelectorAll(".error").forEach(error => error.textContent = "");
+
+      // Name validation: must be at least 3 characters
+      const name = document.getElementById("name").value;
+      if (name.trim() === "") {
+        document.getElementById("nameError").textContent = "You must provide your full name!";
+        isValid = false;
+      } else if (name.length < 3) {
+        document.getElementById("nameError").textContent = "Your name must be at least 3 characters long.";
+        isValid = false;
+      }
+
+      // Time Period validation: should follow a recognizable format
+      const timePeriod = document.getElementById("timePeriod").value;
+      if (timePeriod.trim() === "") {
+        document.getElementById("timePeriodError").textContent = "Please specify your preferred time period.";
+        isValid = false;
+      } else if (!/^\d{4}[A-Za-z]*$/.test(timePeriod)) {
+        document.getElementById("timePeriodError").textContent = "Please enter a valid time period (e.g., 1800s or 3000AD).";
+        isValid = false;
+      }
+
+      // Destination validation: should not be empty
+      const destination = document.getElementById("destination").value;
+      if (destination.trim() === "") {
+        document.getElementById("destinationError").textContent = "Where are you headed? Provide a destination!";
+        isValid = false;
+      }
+
+      // Reason validation: message should not be empty
+      const reason = document.getElementById("reason").value;
+      if (reason.trim() === "") {
+        document.getElementById("reasonError").textContent = "Please provide a reason for your time travel.";
+        isValid = false;
+      }
+
+      // Time Machine validation: must be filled out
+      const timeMachine = document.getElementById("timeMachine").value;
+      if (timeMachine.trim() === "") {
+        document.getElementById("timeMachineError").textContent = "Please specify your time machine model.";
+        isValid = false;
+      }
+
+      // Duration validation: must be a positive number
+      const duration = document.getElementById("duration").value;
+      if (duration <= 0 || isNaN(duration)) {
+        document.getElementById("durationError").textContent = "Please provide a valid duration for your journey.";
+        isValid = false;
+      }
+
+      // Companions validation: must be a non-negative number
+      const companions = document.getElementById("companions").value;
+      if (companions < 0 || isNaN(companions)) {
+        document.getElementById("companionsError").textContent = "Please provide a valid number of companions.";
+        isValid = false;
+      }
+
+      // Risks validation: should not be empty
+      const risks = document.getElementById("risks").value;
+      if (risks.trim() === "") {
+        document.getElementById("risksError").textContent = "Please specify any potential risks or consequences.";
+        isValid = false;
+      }
+
+      // If validation fails, prevent form submission
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+
+</body>
+</html>

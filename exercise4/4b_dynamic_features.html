@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Traveler's Portal - JavaScript Features</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #A1D6E2;
+      text-align: center;
+      margin: 20px;
+      color: #1995AD;
+    }
+    img {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Time Traveler's Portal - JavaScript Features</h1>
+
+  <!-- 4b.i) Dynamic Time -->
+  <div id="timeDisplay" style="font-size: 1.5rem;"></div>
+
+  <!-- 4b.ii) Image Hover -->
+  <img 
+    src="/Users/daphinefebijeris/Documents/Web-Tech/images/future.jpg" 
+    alt="Time Travel Portal" 
+    style="width: 300px; border-radius: 10px;" 
+    onmouseover="showText()" 
+    onmouseout="hideText()"
+  />
+  <p id="hoverText" style="display: none;">Welcome to the Time Travel Portal!</p>
+    <br>
+  <!-- 4b.iii) Background Color Change -->
+  <button onclick="changeBackgroundColor()">Click Me!</button>
+
+  <!-- 4b.iv) Text Change on Hover -->
+  <h2 id="hoverTitle" style="margin-top: 20px;">Hover over me!</h2>
+
+  <script>
+    // 4b.i) Dynamic Time
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("timeDisplay").textContent = `Current Time: ${now.toLocaleTimeString()}`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // 4b.ii) Image Hover Text
+    function showText() {
+      document.getElementById("hoverText").style.display = "block";
+    }
+    function hideText() {
+      document.getElementById("hoverText").style.display = "none";
+    }
+
+    // 4b.iii) Background Color Change
+    function changeBackgroundColor() {
+      const colors = ["#1995AD", "#A1D6E2", "#F1F1F2", "#FFD700", "#FF6347"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+    }
+
+    // 4b.iv) Text Change on Hover
+    const hoverTitle = document.getElementById("hoverTitle");
+    hoverTitle.onmouseover = () => (hoverTitle.textContent = "Time travel is possible!");
+    hoverTitle.onmouseout = () => (hoverTitle.textContent = "Hover over me!");
+  </script>
+</body>
+</html>
