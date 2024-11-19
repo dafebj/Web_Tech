@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<destinations>
+    <destination>
+        <name>Victorian Era</name>
+        <description>A time period characterized by innovation and change in England.</description>
+    </destination>
+    <destination>
+        <name>Ancient Rome</name>
+        <description>The birthplace of Roman civilization and empire.</description>
+    </destination>
+    <destination>
+        <name>Future World</name>
+        <description>A vision of futuristic technology and advanced societies.</description>
+    </destination>
+</destinations>
