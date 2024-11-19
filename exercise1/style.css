@@ -5,7 +5,6 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #1995AD, #A1D6E2);
     color: #F1F1F2;
-    text-align: center;
   }
   
   /* Header */
@@ -92,11 +91,7 @@ body {
     text-align: center;
   }
   
-  img {
-    width: 80%;
-    max-width: 900px;
-    margin-top: 20px;
-  }
+
   
   .description {
     margin-top: 20px;
