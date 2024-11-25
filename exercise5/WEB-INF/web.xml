@@ -1,0 +1,57 @@
+<web-app>
+    <!-- Servlet for 5a -->
+    <servlet>
+        <servlet-name>CallServlet</servlet-name>
+        <servlet-class>CallServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CallServlet</servlet-name>
+        <url-pattern>/CallServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Handling Servlets -->
+    <servlet>
+        <servlet-name>URLRewriteServlet</servlet-name>
+        <servlet-class>URLRewriteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>URLRewriteServlet</servlet-name>
+        <url-pattern>/URLRewriteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CookieSessionServlet</servlet-name>
+        <servlet-class>CookieSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieSessionServlet</servlet-name>
+        <url-pattern>/CookieSessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HttpSessionServlet</servlet-name>
+        <servlet-class>HttpSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpSessionServlet</servlet-name>
+        <url-pattern>/HttpSessionServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Database Connectivity -->
+    <servlet>
+        <servlet-name>DatabaseServlet</servlet-name>
+        <servlet-class>DatabaseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DatabaseServlet</servlet-name>
+        <url-pattern>/DatabaseServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Page Counter -->
+    <servlet>
+        <servlet-name>PageCounterServlet</servlet-name>
+        <servlet-class>PageCounterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageCounterServlet</servlet-name>
+        <url-pattern>/PageCounterServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
